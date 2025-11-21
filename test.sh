@@ -6,7 +6,7 @@
 # ==============================================
 
 # Variables configurables
-USER="andre"
+USER="minie"
 PASSWORD="abc123"
 
 echo "=== Actualizando el sistema ==="
