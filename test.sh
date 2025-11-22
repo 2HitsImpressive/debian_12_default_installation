@@ -41,7 +41,7 @@ echo "lxqt-session" | tee /etc/skel/.xsession > /dev/null
 # --- Sección crucial para reducir el consumo de RAM ---
 echo "=== Eliminando componentes innecesarios para optimización de RAM ==="
 
-sudo apt remove --purge -y \
+apt remove --purge -y \
     lxqt-powermanagement \
     qlipper \
     lxqt-notificationd \
