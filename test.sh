@@ -41,29 +41,7 @@ echo "lxqt-session" | tee /etc/skel/.xsession > /dev/null
 # --- Sección crucial para reducir el consumo de RAM ---
 echo "=== Eliminando componentes innecesarios para optimización de RAM ==="
 
-apt remove --purge -y \
-    lxqt-powermanagement \
-    qlipper \
-    lxqt-notificationd \
-    lxqt-runner \
-    xscreensaver \
-    xscreensaver-data \
-    xscreensaver-data-extra \
-    xscreensaver-gl \
-    pulseaudio \
-    pulseaudio-utils \
-    gvfs \
-    gvfs-daemons \
-    gvfs-fuse \
-    gvfs-backends \
-    avahi-daemon \
-    avahi-utils \
-    system-config-printer \
-    printer-driver-* \
-    cups* \
-    upower \
-    at-spi2-core \
-    at-spi2-common
+apt remove -y lxqt-powermanagement qlipper lxqt-notificationd lxqt-runner xscreensaver xscreensaver-data xscreensaver-data-extra xscreensaver-gl gvfs gvfs-daemons gvfs-fuse gvfs-backends pulseaudio
 
 echo "=== Limpiando dependencias no utilizadas ==="
 apt autoremove -y
