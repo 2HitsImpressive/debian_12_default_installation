@@ -69,31 +69,6 @@ echo "=== Limpiando dependencias no utilizadas ==="
 apt autoremove -y
 apt clean
 
-echo "=== Eliminando widgets innecesarios del panel LXQt ==="
-
-PANEL_CONF="/home/$USER/.config/lxqt/panel.conf"
-
-# Si el archivo no existe todavía, crear estructura mínima
-if [ ! -f "$PANEL_CONF" ]; then
-    mkdir -p "/home/$USER/.config/lxqt"
-    echo "[panel]" > "$PANEL_CONF"
-fi
-
-# Eliminar widgets Volume, Mount y StatusNotifier
-sed -i '/plugin=volume/,/^\[/d' "$PANEL_CONF"
-sed -i '/plugin=mount/,/^\[/d' "$PANEL_CONF"
-sed -i '/plugin=statusnotifier/,/^\[/d' "$PANEL_CONF"
-
-# Corregir permisos (necesario si se ejecuta con sudo)
-chown $USER:$USER "$PANEL_CONF"
-
-# Reiniciar el panel si está en ejecución
-if pgrep lxqt-panel >/dev/null; then
-    lxqt-panel --restart &
-fi
-
-echo "=== Widgets eliminados correctamente del panel ==="
-
 echo
 echo "=== Instalación de LXQt completada correctamente ==="
 echo "El entorno gráfico está instalado y el usuario $USER creado."
