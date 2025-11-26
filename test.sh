@@ -19,29 +19,6 @@ echo "=== Instalando entorno gráfico mínimo (LXQt + Xorg + Openbox + Htop) ===
 # lightdm es el gestor de sesiones que te permitirá iniciar sesión gráficamente
 apt install -y lxqt-core xorg openbox lightdm htop
 
-echo "=== Modificando panel.conf global de LXQt ==="
-
-PANEL_GLOBAL="/etc/xdg/lxqt/panel.conf"
-
-# Cambiar tamaño de iconos del panel (22 → 30)
-sed -i 's/iconSize=22/iconSize=30/' "$PANEL_GLOBAL"
-
-# Cambiar alto del panel (panelSize 32 → 40)
-sed -i 's/panelSize=32/panelSize=40/' "$PANEL_GLOBAL"
-
-# Eliminar widget de dispositivos removibles (mount)
-sed -i '/plugin=mount/,/^\[/d' "$PANEL_GLOBAL"
-
-# Eliminar widget de volumen
-sed -i '/plugin=volume/,/^\[/d' "$PANEL_GLOBAL"
-
-# Eliminar widget statusnotifier
-sed -i '/plugin=statusnotifier/,/^\[/d' "$PANEL_GLOBAL"
-
-echo "=== Cambios aplicados a /etc/xdg/lxqt/panel.conf ==="
-echo "=== Todos los usuarios nuevos heredarán esta configuración ==="
-
-
 echo "=== Creando usuario $USER con privilegios administrativos ==="
 if id "$USER" &>/dev/null; then
     echo "El usuario $USER ya existe, omitiendo creación."
