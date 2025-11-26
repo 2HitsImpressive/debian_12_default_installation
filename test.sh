@@ -23,8 +23,8 @@ echo "=== Modificando panel.conf global de LXQt ==="
 
 PANEL_GLOBAL="/etc/xdg/lxqt/panel.conf"
 
-# Cambiar tamaño de iconos del panel (20 → 30)
-sed -i 's/iconsize=20/iconsize=30/' "$PANEL_GLOBAL"
+# Cambiar tamaño de iconos del panel (22 → 30)
+sed -i 's/iconSize=22/iconSize=30/' "$PANEL_GLOBAL"
 
 # Cambiar alto del panel (panelSize 32 → 40)
 sed -i 's/panelSize=32/panelSize=40/' "$PANEL_GLOBAL"
